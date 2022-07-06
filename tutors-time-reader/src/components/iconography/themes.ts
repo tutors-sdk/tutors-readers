@@ -1,4 +1,4 @@
-import { FluentIconLib } from "./fluent-icons";
+import { FluentIconLib } from "./support/fluent-icons";
 import { currentCourse } from "../../stores";
 import type { IconType } from "../../reader-lib/types/icon-types";
 
@@ -8,13 +8,14 @@ export function setIconLib(iconLib: any) {
   StandardIconLib = iconLib;
 }
 
-export const themes = ["tutors", "tutors-dark", "tutors-dyslexia", "black"];
+export const themes = ["tutors", "tutors-dark", "tutors-black", "tutors-dyslexia", "tutors-wireframe"];
 
 export const themeIcons = {
   "tutors": FluentIconLib,
   "tutors-dark": FluentIconLib,
   "tutors-dyslexia": FluentIconLib,
-  "black": FluentIconLib,
+  "tutors-black": FluentIconLib,
+  "tutors-wireframe": FluentIconLib,
 };
 
 export function getIcon(type: string): IconType {
@@ -31,10 +32,14 @@ export function getIcon(type: string): IconType {
 
 export let currentIconLib: any = StandardIconLib;
 
-currentCourse.subscribe(course => {
+currentCourse.subscribe((course) => {
   if (course && course.lo && course.lo.properties.iconset) {
     currentIconLib = course.lo.properties.iconset;
   } else {
     currentIconLib = StandardIconLib;
   }
 });
+
+export function addIcon(type:string, icon: IconType) {
+  StandardIconLib[type] = icon;
+}

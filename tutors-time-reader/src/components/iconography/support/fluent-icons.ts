@@ -8,8 +8,9 @@ export const FluentIconLib = {
   youtube: { icon: "fluent:video-clip-24-filled", colour: "error" },
   video: { icon: "fluent:video-clip-24-filled", colour: "error" },
   zoom: { icon: "fluent:video-24-filled", colour: "info" },
+  teams: { icon: "logos:microsoft-teams", colour: "bg-base-content" },
 
-  // Lo icons
+  // LoTypes icons
   course: { icon: "fluent:notebook-24-filled", colour: "info" },
   topic: { icon: "fluent:bookmark-24-filled", colour: "info" },
   unit: { icon: "fluent:dual-screen-group-24-filled", colour: "success" },
@@ -20,6 +21,9 @@ export const FluentIconLib = {
   web: { icon: "fluent:bookmark-24-regular", colour: "error" },
   github: { icon: "fluent:code-circle-20-filled", colour: "warning" },
   panelvideo: { icon: "fluent:video-clip-24-regular", colour: "error" },
+  paneltalk: { icon: "fluent:presenter-24-filled", colour: "info" },
+  note: { icon: "fluent:notepad-16-regular", colour: "warning" },
+  panelnote: { icon: "fluent:notepad-16-regular", colour: "warning" },
 
   // pdf reader icons
   left: { icon: "fluent:ios-arrow-left-24-filled", colour: "success" },
@@ -42,7 +46,8 @@ export const FluentIconLib = {
   toc: { icon: "fluent:line-horizontal-3-20-filled", colour: "bg-base-content" },
   compacted: { icon: "fluent:re-order-dots-vertical-24-filled", colour: "success" },
   expanded: { icon: "fluent:re-order-dots-horizontal-24-filled", colour: "success" },
-  courseinfo: { icon: "fluent:book-information-20-filled", colour: "bg-base-content" },
+  courseinfo: { icon: "fluent:info-28-regular", colour: "bg-base-content" },
+  calendar: { icon: "fluent:calendar-ltr-12-regular", colour: "bg-base-content" },
 
-  default: { icon: "fluent:re-order-dots-vertical-24-filled", colour: "info" }
+  default: { icon: "fluent:re-order-dots-vertical-24-filled", colour: "error" },
 };
