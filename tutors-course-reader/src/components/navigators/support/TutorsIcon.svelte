@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Icon from "../../iconography/Icon.svelte";
-  export let version = "4.6.9";
+  const version = "5.0.0";
 </script>
 <div class="tooltip tooltip-bottom" data-tip="Tutors Reader {version}">
   <a target="_blank" href="https://tutors.dev">
