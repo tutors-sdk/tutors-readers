@@ -10,12 +10,14 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@iconify/svelte": "^2.2.1",
     "@iconify/types": "^1.1.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.49",
+    "@tsconfig/svelte": "^2.0.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "ag-grid-community": "^28.0.0",
@@ -36,6 +38,7 @@
     "path-browserify": "^1.0.1",
     "postcss": "^8.4.14",
     "svelte": "^3.48.0",
+    "svelte-check": "^2.2.7",
     "svelte-loading-spinners": "^0.1.7",
     "svelte-preprocess": "^4.10.7",
     "svelte-spa-router": "^3.2.0",
