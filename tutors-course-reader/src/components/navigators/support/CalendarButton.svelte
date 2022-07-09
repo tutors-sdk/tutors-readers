@@ -1,7 +1,7 @@
 <script lang="ts">
   import { currentCourse, revealCalendar } from "../../../stores";
-  import { Course } from "../../../reader-lib/models/course";
-  import Icon from "../../iconography/Icon.svelte";
+  import type { Course } from "tutors-reader-lib/src/models/course";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
 
   let bgColour = "bg-base-100";
   let textColour = "text-white";

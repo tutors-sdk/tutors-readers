@@ -2,11 +2,11 @@
   import { getContext, onMount } from "svelte";
   import type { CourseService } from "../reader-lib/services/course-service";
   import { currentLo } from "../stores";
-  import { extractPath, isValid, ResultType, searchHits } from "../reader-lib/utils/search-utils";
-  import type { Lo } from "../reader-lib/types/lo-types";
-  import { allLos } from "../reader-lib/utils/lo-utils";
+  import { extractPath, isValid, ResultType, searchHits } from "tutors-reader-lib/src/utils/search-utils";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
+  import { allLos } from "tutors-reader-lib/src/utils/lo-utils";
   import { push } from "svelte-spa-router";
-  import { convertMd } from "../reader-lib/utils/markdown-utils";
+  import { convertMd } from "tutors-reader-lib/src/utils/markdown-utils";
 
   const cache: CourseService = getContext("cache");
   export let params: any = {};

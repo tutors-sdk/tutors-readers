@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { Lo } from "../../reader-lib/types/lo-types";
-  import { convertMd } from "../../reader-lib/utils/markdown-utils";
+  import { Lo } from "tutors-reader-lib/src/types/lo-types";
+  import { convertMd } from "tutors-reader-lib/src/utils/markdown-utils";
   // @ts-ignore
   import * as animateScroll from "svelte-scrollto";
-  import { generateToc } from "../../reader-lib/utils/markdown-toc-lib";
+  import { generateToc } from "tutors-reader-lib/src/utils/markdown-toc-lib";
 
   export let lo: Lo;
   let contentHtml = "";

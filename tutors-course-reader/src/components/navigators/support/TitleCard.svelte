@@ -2,8 +2,8 @@
   import { currentCourse, currentLo } from "../../../stores";
   import { getContext } from "svelte";
   import Image from "../../cards/Image.svelte";
-  import type { Lo } from "../../../reader-lib/types/lo-types";
-  import { getIcon } from "../../iconography/themes";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
+  import { getIcon } from "tutors-reader-lib/src/iconography/themes";
   import Icon from "@iconify/svelte";
 
   let lo: Lo;

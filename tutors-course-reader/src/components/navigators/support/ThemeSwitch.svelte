@@ -1,6 +1,6 @@
 <script>
-  import Icon from "../../iconography/Icon.svelte";
-  import { setIconLib, themeIcons, themes } from "../../iconography/themes";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
+  import { setIconLib, themeIcons, themes } from "tutors-reader-lib/src/iconography/themes";
 
   const htmlTag = document.getElementsByTagName("html")[0];
 

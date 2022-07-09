@@ -1,9 +1,9 @@
 <script lang="ts">
   import { currentCourse, currentUser } from "../../../stores";
-  import type { User } from "../../../reader-lib/types/metrics-types";
-  import { Course } from "../../../reader-lib/models/course";
-  import Icon from "../../iconography/Icon.svelte";
-  import { getUserId } from "../../../reader-lib/utils/auth-utils";
+  import type { User } from "tutors-reader-lib/src/types/metrics-types";
+  import type { Course } from "tutors-reader-lib/src/models/course";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
+  import { getUserId } from "tutors-reader-lib/src/utils/auth-utils";
 
   let user: User;
   let course: Course;
