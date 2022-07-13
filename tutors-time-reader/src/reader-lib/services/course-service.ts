@@ -1,11 +1,11 @@
 import path from "path-browserify";
 import { courseUrl, currentCourse, currentUser, week } from "../../stores";
 import { replace } from "svelte-spa-router";
-import { Course } from "../models/course";
-import { Lab } from "../models/lab";
-import { lastSegment } from "../utils/lo-utils";
-import { fromLocalStorage, getUserId, isAuthenticated } from "../utils/auth-utils";
-import { fetchUserById } from "../utils/metrics-utils";
+import { Course } from "tutors-reader-lib/src/models/course";
+import { Lab } from "tutors-reader-lib/src/models/lab";
+import { lastSegment } from "tutors-reader-lib/src/utils/lo-utils";
+import { fromLocalStorage, getUserId, isAuthenticated } from "tutors-reader-lib/src/utils/auth-utils";
+import { fetchUserById } from "tutors-reader-lib/src/utils/metrics-utils";
 
 export class CourseService {
   course: Course;
@@ -87,7 +87,7 @@ export class CourseService {
     const lo = this.course.labIndex.get(labId);
     let lab = this.course.hydratedLabs.get(labId);
     if (!lab) {
-      lab = new Lab(lo, url);
+      lab = new Lab(this.course, lo, url);
       this.course.hydratedLabs.set(labId, lab);
     }
     return lab;

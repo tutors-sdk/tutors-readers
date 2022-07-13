@@ -4,7 +4,7 @@
   import { Grid } from "ag-grid-community";
   import { options } from "../../components/sheets/lab-sheet";
   import { CourseService } from "../../reader-lib/services/course-service";
-  import Icon from "../../components/iconography/Icon.svelte";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
 
   export let id;
 

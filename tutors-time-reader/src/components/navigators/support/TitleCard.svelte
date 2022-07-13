@@ -1,6 +1,6 @@
 <script lang="ts">
   import { currentCourse, currentLo } from "../../../stores";
-  import type { Lo } from "../../../reader-lib/types/lo-types";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
 
   let lo: Lo;
   const unsubscribe = currentLo.subscribe(current => {

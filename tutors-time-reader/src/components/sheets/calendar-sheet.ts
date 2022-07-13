@@ -1,8 +1,8 @@
 import type { ICellRendererParams } from "ag-grid-community";
-import type { Calendar } from "../../reader-lib/types/lo-types";
-import type { UserMetric } from "../../reader-lib/types/metrics-types";
+import type { Calendar } from "tutors-reader-lib/src/types/lo-types";
+import type { UserMetric } from "tutors-reader-lib/src/types/metrics-types";
 import { deepScheme } from "./heat-map-colours";
-import { formatDate } from "../../reader-lib/utils/auth-utils";
+import { formatDate } from "tutors-reader-lib/src/utils/auth-utils";
 
 export let options = {
   animateRows: true,

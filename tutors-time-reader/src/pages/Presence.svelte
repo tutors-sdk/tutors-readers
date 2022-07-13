@@ -2,7 +2,7 @@
   import { getContext, onDestroy } from "svelte";
   import type { CourseService } from "../reader-lib/services/course-service";
   import { currentLo, currentUser } from "../stores";
-  import type { StudentMetric, User } from "../reader-lib/types/metrics-types";
+  import type { StudentMetric, User } from "tutors-reader-lib/src/types/metrics-types";
   import StudentCard from "../components/cards/StudentCard.svelte";
   import { querystring } from "svelte-spa-router";
   import { PresenceService } from "../reader-lib/services/presence-service";
