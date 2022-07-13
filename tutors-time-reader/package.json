@@ -23,6 +23,8 @@
     "@tsconfig/svelte": "^2.0.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
+    "ag-grid-community": "^28.0.0",
+    "ag-grid-enterprise": "^28.0.0",
     "auth0-js": "^9.19.0",
     "autoprefixer": "^10.4.7",
     "daisyui": "2.18.0",
