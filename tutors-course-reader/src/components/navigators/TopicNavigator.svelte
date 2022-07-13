@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { Topic } from "tutors-reader-lib/src/models/topic";
   import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
-  import { Lo } from "tutors-reader-lib/src/types/lo-types";
   import {convertMd} from "tutors-reader-lib/src/utils/markdown-utils";
 
   export let topic: Topic;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { currentCourse, currentUser } from "../../../stores";
   import { getContext, onDestroy } from "svelte";
-  import { StudentMetric, User } from "tutors-reader-lib/src/types/metrics-types";
+  import type { StudentMetric, User } from "tutors-reader-lib/src/types/metrics-types";
   import { PresenceService } from "../../../reader-lib/services/presence-service";
   import { MetricsService } from "../../../reader-lib/services/metrics-service";
   import { Course } from "tutors-reader-lib/src/models/course";
