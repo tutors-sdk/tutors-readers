@@ -2,10 +2,10 @@
   import { getContext } from "svelte";
   import type { CourseService } from "../reader-lib/services/course-service";
   import CardDeck from "../components/cards/CardDeck.svelte";
-  import type { Lo } from "../reader-lib/types/lo-types";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import { currentLo,portfolio } from "../stores";
   import { Wave } from "svelte-loading-spinners";
-  import { fetchAllCourseList } from "../reader-lib/utils/firebase-utils";
+  import { fetchAllCourseList } from "tutors-reader-lib/src/utils/firebase-utils";
 
   let los: Lo[] = [];
 

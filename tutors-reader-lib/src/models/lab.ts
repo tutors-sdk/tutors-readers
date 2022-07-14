@@ -1,14 +1,10 @@
-import type { Lo } from "../types/lo-types";
-import { convertMd } from "../utils/markdown-utils";
-import { removeLeadingHashes } from "../utils/lo-utils";
-import { currentCourse } from "../../stores";
-
-let autoNumber = false;
-const unsubscribe = currentCourse.subscribe((course) => {
-  if (course) autoNumber = course.areLabStepsAutoNumbered();
-});
+import type {Lo} from "../types/lo-types";
+import {convertMd} from "../utils/markdown-utils";
+import {removeLeadingHashes} from "../utils/lo-utils";
+import type {Course} from "./course";
 
 export class Lab {
+  course: Course;
   lo: Lo = null;
   url = "";
   objectivesHtml = "";
@@ -20,10 +16,13 @@ export class Lab {
   chaptersHtml = new Map<string, string>();
   chaptersTitles = new Map<string, string>();
   steps: string[] = [];
+  autoNumber = false;
 
   vertical = true;
 
-  constructor(lo: Lo, url: string) {
+  constructor(course: Course, lo: Lo, url: string) {
+    this.course = course;
+    this.autoNumber = course.areLabStepsAutoNumbered();
     this.url = url;
     this.lo = lo;
     this.objectivesHtml = convertMd(this.lo.los[0].contentMd, this.url);
@@ -39,11 +38,11 @@ export class Lab {
     this.horizontalNavbarHtml = "";
 
     this.lo.los.forEach((chapter, i) => {
-      let number = autoNumber == true ? chapter.shortTitle + ": " : "";
+      let number = this.autoNumber == true ? chapter.shortTitle + ": " : "";
       const active = encodeURI(chapter.shortTitle) == this.currentChapterShortTitle ? "font-bold bordered bg-neutral-focus" : "";
       let title = this.chaptersTitles.get(chapter.shortTitle);
       nav = nav.concat(
-        `<li class="py-1 text-base ${active}"> <a href="/#/lab/${this.url}/${encodeURI(chapter.shortTitle)}"> ${number}${title} </a> </li>`
+          `<li class="py-1 text-base ${active}"> <a href="/#/lab/${this.url}/${encodeURI(chapter.shortTitle)}"> ${number}${title} </a> </li>`
       );
 
       // horizontal nav
@@ -53,9 +52,9 @@ export class Lab {
           let title = this.chaptersTitles.get(nav.shortTitle);
           let step = `${i - 1}:`;
           this.horizontalNavbarHtml = this.horizontalNavbarHtml.concat(
-            `<a class="btn btn-sm capitalize" href="/#/lab/${this.url}/${encodeURI(
-              nav.shortTitle
-            )}"> <span aria-hidden="true">&larr;</span>&nbsp; ${number}${title} </a>`
+              `<a class="btn btn-sm capitalize" href="/#/lab/${this.url}/${encodeURI(
+                  nav.shortTitle
+              )}"> <span aria-hidden="true">&larr;</span>&nbsp; ${number}${title} </a>`
           );
         }
         if (this.lo.los[i + 1] !== undefined) {
@@ -63,9 +62,9 @@ export class Lab {
           let title = this.chaptersTitles.get(nav.shortTitle);
           let step = `${i + 1}:`;
           this.horizontalNavbarHtml = this.horizontalNavbarHtml.concat(
-            `<a class="ml-auto btn btn-sm capitalize" style="margin-left: auto" href="/#/lab/${this.url}/${encodeURI(
-              nav.shortTitle
-            )}"> ${number}${title} &nbsp;<span aria-hidden="true">&rarr;</span></a>`
+              `<a class="ml-auto btn btn-sm capitalize" style="margin-left: auto" href="/#/lab/${this.url}/${encodeURI(
+                  nav.shortTitle
+              )}"> ${number}${title} &nbsp;<span aria-hidden="true">&rarr;</span></a>`
           );
         }
       }

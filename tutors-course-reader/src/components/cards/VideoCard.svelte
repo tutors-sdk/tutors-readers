@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Lo } from "../../reader-lib/types/lo-types";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import { currentCourse } from "../../stores";
-  import { getIcon } from "../iconography/themes";
+  import { getIcon } from "tutors-reader-lib/src/iconography/themes";
   import { viewDelay } from "../animations";
 
   export let lo: Lo;

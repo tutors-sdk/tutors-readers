@@ -2,7 +2,7 @@
   import VideoCard from "../cards/VideoCard.svelte";
   import TalkCard from "../cards/TalkCard.svelte";
   import CardDeck from "./CardDeck.svelte";
-  import type { Lo } from "../../reader-lib/types/lo-types";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import { layout, currentCourse } from "../../stores";
   import { onDestroy } from "svelte";
   export let unit: Lo;
@@ -10,7 +10,6 @@
   const panelTalks = unit.los.filter((lo) => lo.type == "paneltalk");
   const panelNotes =  unit.los.filter((lo) => lo.type == "panelnote");
   const standardLos = unit.los.filter((lo) => (lo.type != "panelvideo") && (lo.type != "paneltalk") && (lo.type != "panelnote"));
-  import { currentCourse } from "../../stores";
   import Image from "./Image.svelte";
   import NoteCard from "./NoteCard.svelte";
 

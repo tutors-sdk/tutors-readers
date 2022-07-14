@@ -5,7 +5,7 @@
   import InstructorLabTime from "./support/InstructorLabTime.svelte";
   import CalendarTime from "./support/CalendarTime.svelte";
   import InstructorCalendarTime from "./support/InstructorCalendarTime.svelte";
-  import type { Course } from "../reader-lib/models/course";
+  import type { Course } from "tutors-reader-lib/src/models/course";
   import type { CourseService } from "../reader-lib/services/course-service";
   import { currentLo, currentUser } from "../stores";
   // @ts-ignore
