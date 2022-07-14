@@ -1,5 +1,14 @@
 # Tutors Changelog
 
+## [5.0.1] - 2022-07-14
+
+- fixed: synchronize versions
+
+## [5.0.0] - 2022-07-14
+
+- new: switched to workspace/monorepo for reader & time/live
+- new: tutors-reader-lib is shared component between reader & time/live
+
 ## [4.6.9] - 2022-04-30
 
 - fixed: Topic navigator images now correctly aligned with selection

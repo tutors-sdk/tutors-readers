@@ -1,5 +1,5 @@
 <script lang="ts">
-  const version = "5.0.0";
+  const version = "5.0.1";
 </script>
 <div class="tooltip" data-tip="Tutors Reader {version}">
   <a target="_blank" href="https://docs.tutors.dev">
