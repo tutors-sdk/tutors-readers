@@ -1,12 +1,12 @@
 <script lang="ts">
   import { currentCourse, currentUser } from "../../../stores";
   import { getContext, onDestroy } from "svelte";
-  import { StudentMetric, User } from "../../../reader-lib/types/metrics-types";
+  import type { StudentMetric, User } from "tutors-reader-lib/src/types/metrics-types";
   import { PresenceService } from "../../../reader-lib/services/presence-service";
   import { MetricsService } from "../../../reader-lib/services/metrics-service";
-  import { Course } from "../../../reader-lib/models/course";
+  import { Course } from "tutors-reader-lib/src/models/course";
   import StudentCard from "../../cards/StudentCard.svelte";
-  import { isAuthenticated } from "../../../reader-lib/utils/auth-utils";
+  import { isAuthenticated } from "tutors-reader-lib/src/utils/auth-utils";
 
   let status = false;
   let show = false;
@@ -26,7 +26,7 @@
   currentUser.subscribe(async newUser => {
     user = newUser;
     let course = await $currentCourse;
-    if (course.hasEnrollment() && isAuthenticated()) {
+    if (course?.hasEnrollment() && isAuthenticated()) {
       show = true;
       metricsService.setCourse(course);
       if (user && !user.hasOwnProperty("onlineStatus")) {

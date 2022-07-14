@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import type { Lo } from "../types/lo-types";
-import type { Course } from "../models/course";
-import type { User } from "../types/auth-types";
+import type { Lo } from "tutors-reader-lib/src/types/lo-types";
+import type { Course } from "tutors-reader-lib/src/models/course";
+import type { User } from "tutors-reader-lib/src/types/auth-types";
 import { checkAuth } from "./auth-service";
 import { getKeys } from "../../environment";
 
@@ -13,7 +13,7 @@ import {
   updateLastAccess,
   updateStr,
   updateVisits,
-} from "../utils/firebase-utils";
+} from "tutors-reader-lib/src/utils/firebase-utils";
 
 let currentAnalytics: AnalyticsService = null;
 let currentCourse: Course = null;

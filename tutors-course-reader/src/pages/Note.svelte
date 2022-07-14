@@ -7,7 +7,7 @@
   // @ts-ignore
   import * as animateScroll from "svelte-scrollto";
   import { talkTransition } from "../components/animations";
-  import type { Lo } from "../reader-lib/types/lo-types";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import NoteCard from "../components/cards/NoteCard.svelte";
 
   export let params: any = {};

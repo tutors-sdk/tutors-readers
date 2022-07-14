@@ -1,8 +1,8 @@
-import type { refreshStudents, StatusChange, StudentMetric, User } from "../types/metrics-types";
+import type { refreshStudents, StatusChange, StudentMetric, User } from "tutors-reader-lib/src/types/metrics-types";
 import type { MetricsService } from "./metrics-service";
-import type { Topic } from "../models/topic";
-import type { Lo } from "../types/lo-types";
-import type { Course } from "../models/course";
+import type { Topic } from "tutors-reader-lib/src/models/topic";
+import type { Lo } from "tutors-reader-lib/src/types/lo-types";
+import type { Course } from "tutors-reader-lib/src/models/course";
 import { studentsOnline } from "../../stores";
 
 function compareStudents(student1: StudentMetric, student2: StudentMetric) {

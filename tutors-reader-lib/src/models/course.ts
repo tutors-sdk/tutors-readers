@@ -2,7 +2,7 @@ import type { Calendar, Lo, Student, WeekType } from "../types/lo-types";
 import { allLos, allVideoLos, fixRoutes, getSortedUnits, injectCourseUrl, threadLos } from "../utils/lo-utils";
 import { Topic } from "./topic";
 import type { IconNav, IconNavBar } from "../types/icon-types";
-import { addIcon } from "../../components/iconography/themes";
+import { addIcon } from "../iconography/themes";
 
 export class Course {
   lo: Lo;
@@ -214,7 +214,7 @@ export class Course {
     if (properties.companions) {
       for (let [key, value] of Object.entries(properties.companions)) {
         const companion:any = value;
-        addIcon(key, companion.icon)
+         addIcon(key, companion.icon)
         this.companions.bar.push({
           link: companion.link,
           icon: key,

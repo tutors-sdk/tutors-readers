@@ -1,7 +1,7 @@
 <script lang="ts">
   import { push } from "svelte-spa-router";
   import { afterUpdate, getContext, onDestroy } from "svelte";
-  import type { Lab } from "../reader-lib/models/lab";
+  import type { Lab } from "tutors-reader-lib/src/lab";
   import type { AnalyticsService } from "../reader-lib/services/analytics-service";
   import { currentLo, revealSidebar } from "../stores";
   import type { CourseService } from "../reader-lib/services/course-service";

@@ -20,7 +20,7 @@
   import { AnalyticsService } from "./reader-lib/services/analytics-service";
   import Search from "./pages/Search.svelte";
   import Modal from "svelte-simple-modal";
-  import { setIconLib, themeIcons, themes } from "./components/iconography/themes";
+  import { setIconLib, themeIcons, themes } from "tutors-reader-lib/src/iconography/themes";
   import Infobar from "./components/navigators/sidebars/InfoBar.svelte";
   import Calendar from "./components/navigators/sidebars/CalendarBar.svelte";
   import Note from "./pages/Note.svelte";

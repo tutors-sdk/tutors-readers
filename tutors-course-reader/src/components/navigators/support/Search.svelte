@@ -1,6 +1,6 @@
 <script lang="ts">
   import { courseUrl, currentCourse } from "../../../stores";
-  import Icon from "../../iconography/Icon.svelte";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
 </script>
 
 {#if !$currentCourse.isPortfolio() }

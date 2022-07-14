@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { StudentMetric } from "../../reader-lib/types/metrics-types";
+  import type { StudentMetric } from "tutors-reader-lib/src/types/metrics-types";
   import Image from "./Image.svelte";
-  import { getIcon } from "../iconography/themes";
+  import { getIcon } from "tutors-reader-lib/src/iconography/themes";
   import {layout} from "../../stores";
   export let student: StudentMetric;
   import { cardTransition } from "../animations";

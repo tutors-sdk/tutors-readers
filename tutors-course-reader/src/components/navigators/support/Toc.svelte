@@ -1,6 +1,6 @@
 <script lang="ts">
   import { revealSidebar } from "../../../stores";
-  import Icon from "../../iconography/Icon.svelte";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
 </script>
 
 <button on:click={() => revealSidebar.set(true)}>

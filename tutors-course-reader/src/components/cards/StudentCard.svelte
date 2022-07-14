@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { StudentMetric } from "../../reader-lib/types/metrics-types";
-  import { getIcon } from "../iconography/themes";
+  import type { StudentMetric } from "tutors-reader-lib/src/types/metrics-types";
+  import { getIcon } from "tutors-reader-lib/src/iconography/themes";
   import { cardTransition } from "../animations";
   import Iconify from "@iconify/svelte";
 

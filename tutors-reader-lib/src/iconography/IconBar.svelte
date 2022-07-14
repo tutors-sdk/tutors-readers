@@ -1,11 +1,11 @@
 <script lang="ts">
   import Icon from "./Icon.svelte";
-  import type { IconNavBar } from "../../reader-lib/types/icon-types";
+  import type { IconNavBar } from "../types/icon-types";
 
   export let nav: IconNavBar;
 </script>
 
-<div class="iconbar">
+<div>
   {#each nav.bar as i}
     <span>
       <a href="{i.link}" target="{i.target}">

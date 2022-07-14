@@ -1,13 +1,13 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
-  import Icon from "../iconography/Icon.svelte";
-  import { getIcon } from "../iconography/themes";
-  import type { Lo } from "../../reader-lib/types/lo-types";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
+  import { getIcon } from "tutors-reader-lib/src/iconography/themes";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import { currentCourse, layout } from "../../stores";
   import { cardTransition } from "../animations";
   import { onDestroy } from "svelte";
   import Image from "./Image.svelte";
-  import { convertMd } from "../../reader-lib/utils/markdown-utils";
+  import { convertMd } from "tutors-reader-lib/src/utils/markdown-utils";
 
   let type = "default";
   export let lo: Lo;

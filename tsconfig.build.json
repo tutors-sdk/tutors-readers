@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "tutors-course-reader"
+    },
+    {
+      "path": "tutors-time-reader"
+    },
+
+    {
+      "path": "tutors-reader-lib"
+    }
+  ]
+}

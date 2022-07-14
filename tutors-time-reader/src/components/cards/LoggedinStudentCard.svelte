@@ -1,7 +1,7 @@
 <script lang="ts">
   import { cardTransition } from "../animations";
   import { currentUser } from "../../stores";
-  import type { User } from "../../reader-lib/types/metrics-types";
+  import type { User } from "tutors-reader-lib/src/types/metrics-types";
   let status = false;
   let user: User;
 

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { currentCourse, currentLo } from "../../../stores";
   import Breadcrumb from "./Breadcrumb.svelte";
-  import Icon from "../../iconography/Icon.svelte";
-  import type { Lo } from "../../../reader-lib/types/lo-types";
+  import Icon from "tutors-reader-lib/src/iconography/Icon.svelte";
+  import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import { fade, fly } from "svelte/transition";
 
   function crumbs(lo: Lo, los: Lo[]) {
