@@ -14,7 +14,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "tutors-reader-lib": "^2.5.5"
+    "tutors-reader-lib": "^2.6.0"
   },
   "devDependencies": {
     "@iconify/svelte": "^2.2.1",

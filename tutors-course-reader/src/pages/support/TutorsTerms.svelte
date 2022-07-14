@@ -38,7 +38,7 @@
         </ul>
         <p class="p-2">Tutors is an open source application - the data collection component <a
           class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-          href="https://github.com/tutors-sdk/tutors-next/blob/development/src/services/analytics-service.ts" target="_blank"> is
+          href="https://github.com/tutors-sdk/tutors-readers/blob/main/tutors-course-reader/src/reader-lib/services/analytics-service.ts" target="_blank"> is
           here</a>.</p>
         <p class="p-2">You will be asked to authenticate again in seven days time.</p>
       </div>
