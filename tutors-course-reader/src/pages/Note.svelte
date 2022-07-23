@@ -4,13 +4,12 @@
   import TopicNavigatorCard from "../components/cards/TopicNavigatorCard.svelte";
   import type { AnalyticsService } from "../reader-lib/services/analytics-service";
   import { currentLo, revealSidebar } from "../stores";
-  // @ts-ignore
   import * as animateScroll from "svelte-scrollto";
   import { talkTransition } from "../components/animations";
   import type { Lo } from "tutors-reader-lib/src/types/lo-types";
   import NoteCard from "../components/cards/NoteCard.svelte";
 
-  export let params: any = {};
+  export let params: Record<string, string>;
 
   const cache: CourseService = getContext("cache");
   const analytics: AnalyticsService = getContext("analytics");
@@ -25,16 +24,17 @@
   }, 500);
 
   onMount(async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
     animateScroll.scrollTo({ delay: 800, element: "#top" });
   });
 
-  async function getNote(noteUrl) {
+  async function getNote(noteUrl:string) {
     url = noteUrl;
     revealSidebar.set(false);
     await cache.fetchCourseFromTalk(params.wild);
     const ref = `/#/note/${params.wild}`;
-    lo = cache.course.notes.get(ref);
-    analytics.pageLoad(params.wild, cache.course, lo);
+    lo = cache.course?.notes.get(ref);
+    analytics.pageLoad(params.wild, cache.course!, lo);
     // noinspection TypeScriptValidateTypes
     currentLo.set(lo);
     title = lo.title;

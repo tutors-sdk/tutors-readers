@@ -9,9 +9,9 @@
     unitId = lo.id;
   }
 
-  function truncate(input) {
-    if (input.length > 26) {
-      return input.substring(0, 26) + "...";
+  function truncate(input:string) {
+    if (input?.length > 26) {
+      return input?.substring(0, 26) + "...";
     }
     return input;
   }

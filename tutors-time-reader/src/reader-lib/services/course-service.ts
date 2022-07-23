@@ -13,8 +13,7 @@ export class CourseService {
   courseUrl = "";
   loadError = false;
 
-  constructor() {
-  }
+  constructor() {}
 
   async getCourse(url) {
     if (!this.course || this.course.url !== url) {
@@ -92,9 +91,4 @@ export class CourseService {
     }
     return lab;
   }
-
-
-
 }
-
-

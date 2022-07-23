@@ -15,10 +15,10 @@ import {
   updateVisits,
 } from "tutors-reader-lib/src/utils/firebase-utils";
 
-let currentAnalytics: AnalyticsService = null;
-let currentCourse: Course = null;
+let currentAnalytics: AnalyticsService;
+let currentCourse: Course;
 let currentRoute = "";
-let currentLo: Lo = null;
+let currentLo: Lo;
 
 let mins = 0;
 const func = () => {

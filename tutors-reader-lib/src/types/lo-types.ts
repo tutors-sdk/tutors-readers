@@ -9,7 +9,7 @@ export interface WeekType {
   title: string;
   type: string;
   date: string;
-  dateObj: Date;
+  dateObj?: Date;
 }
 
 export interface Calendar {
@@ -28,7 +28,7 @@ export interface VideoIdentifiers {
 }
 
 export interface Lo {
-  parentLo: Lo,
+  parentLo: Lo;
   properties: { [prop: string]: string };
   enrollment: { students: Student[] };
   calendar: any;
@@ -48,5 +48,5 @@ export interface Lo {
   hide: boolean;
   los: Lo[];
   parent: Topic;
-  icon?:any;
+  icon?: any;
 }

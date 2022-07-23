@@ -14,7 +14,7 @@
     if (lo && lo.type === "unit") {
       lo.img = lo.parentLo.img;
       lo.icon = lo.parentLo.icon;
-    } else if (lo && lo.route.includes("wall")) {
+    } else if (lo && lo.route?.includes("wall")) {
       wall = true;
     }
   });

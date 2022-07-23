@@ -1,31 +1,34 @@
 <script lang="ts">
-  import { push } from "svelte-spa-router";
-  import { afterUpdate, getContext, onDestroy } from "svelte";
-  import type { Lab } from "tutors-reader-lib/src/lab";
-  import type { AnalyticsService } from "../reader-lib/services/analytics-service";
-  import { currentLo, revealSidebar } from "../stores";
-  import type { CourseService } from "../reader-lib/services/course-service";
-  // @ts-ignore
-  import * as animateScroll from "svelte-scrollto";
-  import { viewDelay } from "../components/animations";
-  import { fade, fly, slide, draw } from 'svelte/transition';
+  import {push} from "svelte-spa-router";
+  import {afterUpdate, getContext, onDestroy} from "svelte";
 
-  export let params: any = {};
+  import type {AnalyticsService} from "../reader-lib/services/analytics-service";
+  import {currentLo, revealSidebar} from "../stores";
+  import type {CourseService} from "../reader-lib/services/course-service";
+  import * as animateScroll from "svelte-scrollto";
+  import {viewDelay} from "../components/animations";
+  import {fade, fly, slide, draw} from 'svelte/transition';
+  import {Lab} from "tutors-reader-lib/src/models/lab";
+
+  export let params: Record<string, string>;
 
   const cache: CourseService = getContext("cache");
   const analytics: AnalyticsService = getContext("analytics");
   let title = "";
-  let lab: Lab = null;
+
+  let lab: Lab;
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   window.addEventListener("keydown", keypressInput);
   window.addEventListener("mousedown", mouseClick);
 
   let hide = true;
-  setTimeout(function() {
+  setTimeout(function () {
     hide = false;
   }, viewDelay);
 
   let mostRecentLab = "";
-  function removeLastDirectory(the_url) {
+
+  function removeLastDirectory(the_url: string) {
     var the_arr = the_url.split('/');
     let lastSegment = the_arr.pop();
     if (lastSegment.startsWith("book")) {
@@ -34,7 +37,7 @@
     return the_arr.join('/');
   }
 
-  async function getLab(url) {
+  async function getLab(url: string) {
     revealSidebar.set(false);
     let encoded = encodeURI(params.wild);
     const lastSegment = encoded.substr(params.wild.lastIndexOf("/") + 1);
@@ -48,7 +51,7 @@
         lab = await cache.fetchLab(params.wild);
       }
     }
-    analytics.pageLoad(params.wild, cache.course, lab.lo);
+    analytics.pageLoad(params.wild, cache.course!, lab.lo);
 
     // noinspection TypeScriptValidateTypes
     currentLo.set(lab.lo);
@@ -63,38 +66,44 @@
 
   let direction = 0;
 
-  function mouseClick (e) {
+  function mouseClick(e) {
     direction = 0;
   }
 
-  function keypressInput(e) {
+  async function keypressInput(e: KeyboardEvent) {
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       direction = 400;
       e.preventDefault();
       let step = lab.nextStep();
-      if (step) push(`/lab/${lab.url}/${step}`);
+      if (step) await push(`/lab/${lab.url}/${step}`);
     } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
       direction = -150;
       e.preventDefault();
       let step = lab.prevStep();
-      if (step) push(`/lab/${lab.url}/${step}`);
+      if (step) await push(`/lab/${lab.url}/${step}`);
     }
   }
 
   onDestroy(async () => {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     window.removeEventListener("keydown", keypressInput);
     window.removeEventListener("mousedown", mouseClick);
   });
 
   afterUpdate(async () => {
-    animateScroll.scrollToTop();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+    animateScroll.scrollTo({delay: 200, element: "#top"});
   });
 </script>
 
 <svelte:head>
   <title>{title}</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js" integrity="sha512-DAZH0Wu7q9Hnm0Fw8tRZsTeQBzIugiUy6k2r7E0KKMlC2nBvvrNSH/LVnGueCXRfDs5epP+Ieoh3L+VzSKi0Aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css" integrity="sha512-nii0D5CrWiLjtPcfU3pQJifaRLxKKVut/hbsazsodCcIOERZbwLH7dQxzOKy3Ey/Fv8fXCA9+Rf+wQzqklbEJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"
+          integrity="sha512-DAZH0Wu7q9Hnm0Fw8tRZsTeQBzIugiUy6k2r7E0KKMlC2nBvvrNSH/LVnGueCXRfDs5epP+Ieoh3L+VzSKi0Aw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css"
+        integrity="sha512-nii0D5CrWiLjtPcfU3pQJifaRLxKKVut/hbsazsodCcIOERZbwLH7dQxzOKy3Ey/Fv8fXCA9+Rf+wQzqklbEJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </svelte:head>
 
 
@@ -103,19 +112,17 @@
 
     <div class="flex">
       <div class="labmenu-container">
-        <ul
-          class="labmenu">
+        <ul class="labmenu">
           {@html lab.navbarHtml}
         </ul>
       </div>
-      <div id="lab-panel"
-           class="labpanel">
+      <div id="lab-panel" class="labpanel">
         <header class="labmenu-mobile">
           <nav class="flex flex-wrap justify-between">
             {@html lab.horizontalNavbarHtml}
           </nav>
         </header>
-        <article class="labcontent" in:fly="{{ x: direction, duration: 200 }}" >
+        <article class="labcontent" in:fly="{{ x: direction, duration: 200 }}">
           {@html lab.content}
         </article>
       </div>
@@ -124,7 +131,7 @@
 {/await}
 
 <style>
-:global(.labcontent pre) {
-  color : white;
-}
+  :global(.labcontent pre) {
+    color: white;
+  }
 </style>

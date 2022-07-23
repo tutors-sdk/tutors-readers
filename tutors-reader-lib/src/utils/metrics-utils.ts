@@ -77,7 +77,7 @@ function expandGenericMetrics(id: string, fbData): any {
   return metric;
 }
 
-export async function fetchUserById(courseUrl: string, userId: string, allLabs) {
+export async function fetchUserById(courseUrl: string = "", userId: string, allLabs): Promise<string> {
   const courseBase = courseUrl.substr(0, courseUrl.indexOf("."));
   const userEmail = decrypt(userId);
   const userEmailSanitised = userEmail.replace(/[`#$.\[\]\/]/gi, "*");

@@ -89,7 +89,7 @@ export class MetricsService {
     }
   }
 
-  async fetchUserById(userId: string){
+  async fetchUserById(userId: string) {
     const user = await fetchUserById(this.course.url, userId, this.allLabs);
     if (!user.hasOwnProperty("onlineStatus")) user.onlineStatus = "online";
     return user;
@@ -115,7 +115,7 @@ export class MetricsService {
     return users;
   }
 
-  startListening(metricUpdate: MetricUpdate, metricDelete: MetricDelete, statusChange:StatusChange) {
+  startListening(metricUpdate: MetricUpdate, metricDelete: MetricDelete, statusChange: StatusChange) {
     this.metricUpdate = metricUpdate;
     this.metricDelete = metricDelete;
     this.statusChange = statusChange;

@@ -10,7 +10,7 @@ export class Course {
   units: Lo[];
   standardLos: Lo[];
   allLos: Lo[];
-  url: string;
+  url = "";
   authLevel = 0;
   analytics = 0;
   topicIndex = new Map<string, Topic>();
@@ -132,7 +132,7 @@ export class Course {
 
   isPortfolio() {
     let isPortfolio = false;
-    if (this.lo.properties.portfolio !== undefined) {
+    if (this?.lo?.properties?.portfolio !== undefined) {
       const portfolio: any = this.lo.properties.portfolio;
       isPortfolio = portfolio == true;
     }
@@ -158,7 +158,7 @@ export class Course {
   }
 
   hasEnrollment(): boolean {
-    return this.lo.enrollment !== undefined;
+    return this?.lo?.enrollment !== undefined;
   }
 
   hasWhiteList(): boolean {
@@ -213,8 +213,8 @@ export class Course {
       });
     if (properties.companions) {
       for (let [key, value] of Object.entries(properties.companions)) {
-        const companion:any = value;
-         addIcon(key, companion.icon)
+        const companion: any = value;
+        addIcon(key, companion.icon);
         this.companions.bar.push({
           link: companion.link,
           icon: key,

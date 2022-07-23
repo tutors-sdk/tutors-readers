@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./tailwind.css";
-  import { onMount, setContext } from "svelte";
+  import {onMount, setContext} from "svelte";
   import Router from "svelte-spa-router";
   import Sidebar from "./components/navigators/sidebars/TocBar.svelte";
   import Blank from "./pages/support/Blank.svelte";
@@ -15,16 +15,23 @@
   import MainNavigator from "./components/navigators/MainNavigator.svelte";
   import Logout from "./pages/support/Logout.svelte";
   import TutorsTerms from "./pages/support/TutorsTerms.svelte";
-  import { CourseService } from "./reader-lib/services/course-service";
-  import { handleAuthentication } from "./reader-lib/services/auth-service";
-  import { AnalyticsService } from "./reader-lib/services/analytics-service";
+  import {CourseService} from "./reader-lib/services/course-service";
+  import {handleAuthentication} from "./reader-lib/services/auth-service";
+  import {AnalyticsService} from "./reader-lib/services/analytics-service";
   import Search from "./pages/Search.svelte";
   import Modal from "svelte-simple-modal";
-  import { setIconLib, themeIcons, themes } from "tutors-reader-lib/src/iconography/themes";
+  import {setIconLib, themeIcons, themes} from "tutors-reader-lib/src/iconography/themes";
   import Infobar from "./components/navigators/sidebars/InfoBar.svelte";
   import Calendar from "./components/navigators/sidebars/CalendarBar.svelte";
   import Note from "./pages/Note.svelte";
-  import { MetricsService } from "./reader-lib/services/metrics-service";
+  import {MetricsService} from "./reader-lib/services/metrics-service";
+
+  import {writable} from 'svelte/store'
+
+  const store = writable([])
+  $store.length // incorrect no-unsafe-member-access error
+
+  export let name: string
 
   setContext("cache", new CourseService());
   const analytics = new AnalyticsService();
@@ -65,7 +72,7 @@
   const htmlTag = document.getElementsByTagName("html")[0];
   let currentTheme = window.localStorage.getItem("site-theme");
   if (themes.indexOf(currentTheme) < 0) {
-    currentTheme = null;
+    currentTheme = "";
   }
 
   function applyInitialTheme() {
@@ -84,14 +91,14 @@
 
 <div class="tutors-container">
   {#if authenticating}
-    <TutorsTerms bind:authenticating />
+    <TutorsTerms bind:authenticating/>
   {:else}
     <Modal>
-      <Sidebar />
-      <Infobar />
-      <Calendar />
-      <MainNavigator />
-      <Router {routes} />
+      <Sidebar/>
+      <Infobar/>
+      <Calendar/>
+      <MainNavigator/>
+      <Router {routes}/>
     </Modal>
   {/if}
 </div>

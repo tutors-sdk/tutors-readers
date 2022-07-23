@@ -1,5 +1,5 @@
 import { FluentIconLib } from "tutors-reader-lib/src/iconography/support/fluent-icons";
-// import { currentCourse } from "../stores";
+// import { currentCourse }ores"; from "../st
 import type { IconType } from "tutors-reader-lib/src/types/icon-types";
 
 let StandardIconLib = FluentIconLib;
@@ -8,10 +8,10 @@ export function setIconLib(iconLib: any) {
   StandardIconLib = iconLib;
 }
 
-export const themes = ["tutors", "tutors-dark", "tutors-black", "tutors-dyslexia", "tutors-wireframe"];
+export const themes: string[] = ["tutors", "tutors-dark", "tutors-black", "tutors-dyslexia", "tutors-wireframe"];
 
 export const themeIcons = {
-  "tutors": FluentIconLib,
+  tutors: FluentIconLib,
   "tutors-dark": FluentIconLib,
   "tutors-dyslexia": FluentIconLib,
   "tutors-black": FluentIconLib,
@@ -40,6 +40,6 @@ export let currentIconLib: any = StandardIconLib;
 //   }
 // });
 
-export function addIcon(type:string, icon: IconType) {
+export function addIcon(type: string, icon: IconType) {
   StandardIconLib[type] = icon;
 }

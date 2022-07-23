@@ -17,7 +17,7 @@
 </script>
 <div class="navbar-secondary-bg">
   <ul in:fly="{{ y: -20, duration: 1000 }}" out:fade>
-    {#if $currentCourse.lo.properties?.parent != null }
+    {#if $currentCourse?.lo?.properties?.parent != null }
       <li>
         <a class="navbar-icon" href="#/{$currentCourse.lo.properties?.parent}">
           <Icon type="programHome" />

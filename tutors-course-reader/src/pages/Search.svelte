@@ -8,13 +8,14 @@
   import {allLos} from "tutors-reader-lib/src/utils/lo-utils";
   import {push} from "svelte-spa-router";
   import {convertMd} from "tutors-reader-lib/src/utils/markdown-utils";
+  import type {Course} from "tutors-reader-lib/src/models/course";
 
+  export let params: Record<string, string>;
   const cache: CourseService = getContext("cache");
-  export let params: any = {};
+  let course: Course;
   let search_strings: string[] = [];
   let labs: Lo[] = [];
   let title = "";
-  let course;
   let searchTerm = "";
   let searchResults: ResultType[] = [];
 
@@ -23,11 +24,6 @@
     currentLo.set(course.lo);
     title = course.lo.title;
     labs = allLos("lab", course.lo.los);
-  });
-
-  const handleClick = ((arg: string) => {
-    let path = extractPath(arg);
-    push(path);
   });
 
   function transformResults(results: ResultType[]) {

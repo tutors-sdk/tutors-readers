@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="navbar-secondary">
-      {#if !$currentCourse.isPortfolio() && !$portfolio}
+      {#if !$currentCourse?.isPortfolio() && !$portfolio}
         <Breadcrumbs />
         <Companions />
         <Wall />
